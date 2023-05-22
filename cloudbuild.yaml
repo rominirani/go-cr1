@@ -16,7 +16,7 @@ steps:
   # [START cloudbuild_python_deploy_yaml]
   # Deploy to Cloud Run
   - name: google/cloud-sdk
-    args: ['gcloud', 'run', 'deploy', 'ccd-indore-2023', 
+    args: ['gcloud', 'run', 'deploy', 'ccd-23-demo', 
            '--image=us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}', 
            '--region', 'us-central1', '--platform', 'managed', 
            '--allow-unauthenticated']
@@ -32,8 +32,8 @@ artifacts:
 # [END cloudbuild_python_logs_yaml]
 # Store images in Google Artifact Registry 
 substitutions:
-  _ARTIFACT_REGISTRY_REPO : "my-ccd-indore-ar-repo"
-  _BUCKET_NAME : "my-ccd-indore-gcs-bucket"
+  _ARTIFACT_REGISTRY_REPO : "my-ccd-23-demo-ar-repo"
+  _BUCKET_NAME : "my-ccd-23-demo-bucket"
 images:
   - us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}
   #- us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:latest
